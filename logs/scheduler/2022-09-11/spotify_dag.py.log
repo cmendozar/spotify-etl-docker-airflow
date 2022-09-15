@@ -1,0 +1,7 @@
+[2022-09-11T04:34:25.284+0000] {processor.py:153} INFO - Started process (PID=32) to work on /opt/airflow/dags/spotify_dag.py
+[2022-09-11T04:34:25.287+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/spotify_dag.py for tasks to queue
+[2022-09-11T04:34:25.289+0000] {logging_mixin.py:115} INFO - [2022-09-11T04:34:25.289+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/spotify_dag.py
+[2022-09-11T04:34:26.296+0000] {processor.py:650} INFO - DAG(s) dict_keys(['spotify_etl']) retrieved from /opt/airflow/dags/spotify_dag.py
+[2022-09-11T04:34:26.345+0000] {logging_mixin.py:115} INFO - [2022-09-11T04:34:26.344+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-09-11T04:34:26.361+0000] {logging_mixin.py:115} INFO - [2022-09-11T04:34:26.361+0000] {dag.py:2981} INFO - Setting next_dagrun for spotify_etl to 2022-09-11T00:00:00+00:00, run_after=2022-09-12T00:00:00+00:00
+[2022-09-11T04:34:26.372+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/spotify_dag.py took 1.091 seconds

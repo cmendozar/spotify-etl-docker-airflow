@@ -1,0 +1,15 @@
+[2022-09-13T14:46:59.706+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:46:59.724+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/spotify_dag.py for tasks to queue
+[2022-09-13T14:46:59.740+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:46:59.739+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:47:04.643+0000] {processor.py:650} INFO - DAG(s) dict_keys(['spotify_etl']) retrieved from /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:47:04.968+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:47:04.966+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-09-13T14:47:05.050+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:47:05.050+0000] {dag.py:2981} INFO - Setting next_dagrun for spotify_etl to 2022-09-13T00:00:00+00:00, run_after=2022-09-14T00:00:00+00:00
+[2022-09-13T14:47:05.101+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/spotify_dag.py took 5.404 seconds
+[2022-09-13T14:47:09.980+0000] {processor.py:153} INFO - Started process (PID=44) to work on /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:47:09.981+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/spotify_dag.py for tasks to queue
+[2022-09-13T14:47:09.982+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:47:09.982+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:47:10.408+0000] {processor.py:650} INFO - DAG(s) dict_keys(['spotify_etl']) retrieved from /opt/airflow/dags/spotify_dag.py
+[2022-09-13T14:47:10.448+0000] {processor.py:610} INFO - Executed failure callback for <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T20:09:00.245832+00:00 [up_for_retry]> in state up_for_retry
+[2022-09-13T14:47:10.452+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:47:10.452+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-09-13T14:47:10.465+0000] {logging_mixin.py:115} INFO - [2022-09-13T14:47:10.465+0000] {dag.py:2981} INFO - Setting next_dagrun for spotify_etl to 2022-09-13T00:00:00+00:00, run_after=2022-09-14T00:00:00+00:00
+[2022-09-13T14:47:10.473+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/spotify_dag.py took 0.497 seconds

@@ -1,0 +1,49 @@
+[2022-09-10T20:10:20.456+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T20:10:18.658818+00:00 [queued]>
+[2022-09-10T20:10:20.463+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T20:10:18.658818+00:00 [queued]>
+[2022-09-10T20:10:20.464+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-10T20:10:20.465+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-10T20:10:20.465+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-10T20:10:20.477+0000] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): spotify_etl> on 2022-09-10 20:10:18.658818+00:00
+[2022-09-10T20:10:20.485+0000] {standard_task_runner.py:52} INFO - Started process 1320 to run task
+[2022-09-10T20:10:20.488+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'spotify_etl', 'spotify_etl', 'manual__2022-09-10T20:10:18.658818+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/spotify_dag.py', '--cfg-path', '/tmp/tmptnghlnbt', '--error-file', '/tmp/tmp6wsd299c']
+[2022-09-10T20:10:20.490+0000] {standard_task_runner.py:80} INFO - Job 25: Subtask spotify_etl
+[2022-09-10T20:10:20.545+0000] {task_command.py:371} INFO - Running <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T20:10:18.658818+00:00 [running]> on host aafa6629e766
+[2022-09-10T20:10:20.596+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=c.mendozar@outlook.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=spotify_etl
+AIRFLOW_CTX_TASK_ID=spotify_etl
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-10T20:10:18.658818+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-10T20:10:18.658818+00:00
+[2022-09-10T20:10:20.598+0000] {logging_mixin.py:115} INFO -  JAJAJAJA STARTINNNNNNN JAJAJAJAJJAJA
+[2022-09-10T20:10:20.600+0000] {oauth2.py:471} INFO - User authentication requires interaction with your web browser. Once you enter your credentials and give authorization, you will be redirected to a url.  Paste that url you were directed to to complete the authorization.
+[2022-09-10T20:10:20.601+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/spotify/etl.py", line 41, in song_etl
+    redirect_uri = redirect_uri
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/util.py", line 99, in prompt_for_user_token
+    code = sp_oauth.get_auth_response()
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 490, in get_auth_response
+    return self._get_auth_response_local_server(redirect_port)
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 457, in _get_auth_response_local_server
+    server = start_local_http_server(redirect_port)
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 1303, in start_local_http_server
+    server = HTTPServer(("127.0.0.1", port), handler)
+  File "/usr/local/lib/python3.7/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/local/lib/python3.7/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/local/lib/python3.7/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+[2022-09-10T20:10:20.609+0000] {taskinstance.py:1412} INFO - Marking task as UP_FOR_RETRY. dag_id=spotify_etl, task_id=spotify_etl, execution_date=20220910T201018, start_date=20220910T201020, end_date=20220910T201020
+[2022-09-10T20:10:20.617+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 25 for task spotify_etl ([Errno 98] Address already in use; 1320)
+[2022-09-10T20:10:20.661+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-10T20:10:20.681+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

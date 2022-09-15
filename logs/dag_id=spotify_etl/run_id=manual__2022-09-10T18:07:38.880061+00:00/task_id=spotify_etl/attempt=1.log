@@ -1,0 +1,137 @@
+[2022-09-10T18:07:40.005+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T18:07:38.880061+00:00 [queued]>
+[2022-09-10T18:07:40.012+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T18:07:38.880061+00:00 [queued]>
+[2022-09-10T18:07:40.013+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-10T18:07:40.014+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-10T18:07:40.015+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-10T18:07:40.026+0000] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): spotify_etl> on 2022-09-10 18:07:38.880061+00:00
+[2022-09-10T18:07:40.034+0000] {standard_task_runner.py:52} INFO - Started process 124 to run task
+[2022-09-10T18:07:40.037+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'spotify_etl', 'spotify_etl', 'manual__2022-09-10T18:07:38.880061+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/spotify_dag.py', '--cfg-path', '/tmp/tmpzduccgzg', '--error-file', '/tmp/tmp0t7rseja']
+[2022-09-10T18:07:40.039+0000] {standard_task_runner.py:80} INFO - Job 22: Subtask spotify_etl
+[2022-09-10T18:07:40.092+0000] {task_command.py:371} INFO - Running <TaskInstance: spotify_etl.spotify_etl manual__2022-09-10T18:07:38.880061+00:00 [running]> on host aafa6629e766
+[2022-09-10T18:07:40.137+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=c.mendozar@outlook.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=spotify_etl
+AIRFLOW_CTX_TASK_ID=spotify_etl
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-10T18:07:38.880061+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-10T18:07:38.880061+00:00
+[2022-09-10T18:07:40.139+0000] {logging_mixin.py:115} INFO -  JAJAJAJA STARTINNNNNNN JAJAJAJAJJAJA
+[2022-09-10T18:07:40.140+0000] {oauth2.py:471} INFO - User authentication requires interaction with your web browser. Once you enter your credentials and give authorization, you will be redirected to a url.  Paste that url you were directed to to complete the authorization.
+[2022-09-10T18:07:40.143+0000] {oauth2.py:436} INFO - Opened https://accounts.spotify.com/authorize?client_id=c9c1a716270c4838aab105a27a474d4c&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&scope=user-read-recently-played in your browser
+[2022-09-10T18:24:16.178+0000] {local_task_job.py:227} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2022-09-10T18:24:16.201+0000] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 124. PIDs of all processes in the group: [124]
+[2022-09-10T18:24:16.202+0000] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 124
+[2022-09-10T18:24:16.210+0000] {taskinstance.py:1553} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-09-10T18:24:16.255+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/spotify/etl.py", line 41, in song_etl
+    redirect_uri = redirect_uri
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/util.py", line 99, in prompt_for_user_token
+    code = sp_oauth.get_auth_response()
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 490, in get_auth_response
+    return self._get_auth_response_local_server(redirect_port)
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 459, in _get_auth_response_local_server
+    server.handle_request()
+  File "/usr/local/lib/python3.7/socketserver.py", line 294, in handle_request
+    ready = selector.select(timeout)
+  File "/usr/local/lib/python3.7/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1555, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-09-10T18:24:16.269+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=spotify_etl, task_id=spotify_etl, execution_date=20220910T180738, start_date=20220910T180740, end_date=20220910T182416
+[2022-09-10T18:24:16.294+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:119: PendingDeprecationWarning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2022-09-10T18:24:16.295+0000] {configuration.py:562} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-10T18:24:16.296+0000] {email.py:228} INFO - Email alerting: attempt 1
+[2022-09-10T18:24:16.305+0000] {configuration.py:562} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-10T18:24:16.307+0000] {email.py:228} INFO - Email alerting: attempt 1
+[2022-09-10T18:24:16.308+0000] {taskinstance.py:1957} ERROR - Failed to send email to: ['c.mendozar@outlook.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1463, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1610, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1671, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/spotify/etl.py", line 41, in song_etl
+    redirect_uri = redirect_uri
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/util.py", line 99, in prompt_for_user_token
+    code = sp_oauth.get_auth_response()
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 490, in get_auth_response
+    return self._get_auth_response_local_server(redirect_port)
+  File "/home/airflow/.local/lib/python3.7/site-packages/spotipy/oauth2.py", line 459, in _get_auth_response_local_server
+    server.handle_request()
+  File "/usr/local/lib/python3.7/socketserver.py", line 294, in handle_request
+    ready = selector.select(timeout)
+  File "/usr/local/lib/python3.7/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1555, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2339, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 71, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 119, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 230, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 264, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1955, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2341, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 71, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 119, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 230, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 264, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2022-09-10T18:24:16.320+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 22 for task spotify_etl (Task received SIGTERM signal; 124)
+[2022-09-10T18:24:16.379+0000] {process_utils.py:75} INFO - Process psutil.Process(pid=124, status='terminated', exitcode=1, started='18:07:39') (124) terminated with exit code 1
